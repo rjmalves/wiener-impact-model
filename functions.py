@@ -39,7 +39,6 @@ def print_graph_result(graph_list: List[nx.Graph], initial_graph_complement: nx.
         nx.draw(aux_initial_graph, with_labels=True, node_color='w', edgelist = edge_list, edge_color = edge_color_list)
         plt.show()
 
-
 def deck_of_graphs(initial_graph: nx.Graph) -> List[nx.Graph]:
     """
     Retorna uma lista de grafos, resultantes da remoção individual de vértices de um grafo base.
@@ -153,9 +152,8 @@ def graph_to_list_differences(g: nx.Graph, original_graph_complement: nx.Graph):
     graph_edges = list(g.edges())
     bin_differences_list = [1 if e in graph_edges and complement_edges else 0 
                             for e in complement_edges]
-#    List_Gr = [0 for e in Complement.edges() if e in Gr.edges()]
+    # List_Gr = [0 for e in Complement.edges() if e in Gr.edges()]
     return bin_differences_list
-
 
 def initial_model_variables(g: nx.Graph) -> Tuple[np.ndarray, np.ndarray]:
     """
@@ -211,7 +209,6 @@ def calculates_two_additions(g: nx.Graph) -> List[dict]:
             abs_index += 1
 
     return actuals
-
 
 def predicts_two_additions(complement: nx.Graph, model: Ridge) -> List[dict]:
     """
