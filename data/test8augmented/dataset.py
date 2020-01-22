@@ -2,12 +2,12 @@ import torch
 from torch_geometric.data import InMemoryDataset
 from utils.torch_data_reader import TorchDataReader
 
-class Test8Nodes(InMemoryDataset):
+class Test8Augmented(InMemoryDataset):
 
-    PATH = "C:/Users/roger/git/wiener-impact-model/data/test8nodes/raw/"
+    PATH = "C:/Users/roger/git/wiener-impact-model/data/test8augmented/raw/"
 
     def __init__(self, root, name, transform=None, pre_transform=None):
-        super(Test8Nodes, self).__init__(root, transform, pre_transform)
+        super(Test8Augmented, self).__init__(root, transform, pre_transform)
         self.data, self.slices = torch.load(self.processed_paths[0])
         self.name = name
 
@@ -23,7 +23,7 @@ class Test8Nodes(InMemoryDataset):
         pass
 
     def process(self):
-        reader = TorchDataReader(Test8Nodes.PATH)
+        reader = TorchDataReader(Test8Augmented.PATH)
         data_list = reader.torch_data
 
         if self.pre_filter is not None:

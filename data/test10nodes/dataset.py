@@ -4,7 +4,7 @@ from utils.torch_data_reader import TorchDataReader
 
 class Test10Nodes(InMemoryDataset):
 
-    PATH = "/home/rogerio/git/wiener-impact-model/data/test10nodes/raw/"
+    PATH = "C:/Users/roger/git/wiener-impact-model/data/test10nodes/raw/"
 
     def __init__(self, root, name, transform=None, pre_transform=None):
         super(Test10Nodes, self).__init__(root, transform, pre_transform)
