@@ -1,10 +1,9 @@
 import torch
 from torch_geometric.data import Data
-from torch_geometric.utils import from_networkx
 import networkx as nx
-import numpy as np
 from typing import List
 from utils.wiener_calculator import WienerCalculator
+
 
 class TorchDataReader:
 
@@ -31,7 +30,6 @@ class TorchDataReader:
         data = []
         for g, i in zip(self.__graphs, self.__impacts):
             # Cria um vetor de atributos default
-            n = len(g.nodes())
             calc = WienerCalculator(g)
             impacts = calc.node_wiener_impacts
             x = torch.tensor(impacts, dtype=torch.float)
@@ -47,7 +45,7 @@ class TorchDataReader:
     @property
     def graphs(self):
         return self.__graphs
-    
+
     @property
     def impacts(self):
         return self.__impacts

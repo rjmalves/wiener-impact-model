@@ -1,6 +1,4 @@
 import networkx as nx
-import matplotlib.pyplot as plt
-import os
 from copy import deepcopy
 from wiener_calculator import WienerCalculator
 from torch_data_reader import TorchDataReader
@@ -11,10 +9,10 @@ m = 15
 DIR = "C:/Users/roger/git/wiener-impact-model/data/test8augmented/raw/"
 GRAPH_FILENAME = "graphs.txt"
 IMPACT_FILENAME = "impacts.txt"
-K = 50 # Quantos grafos 'pai' são desejados
+K = 50  # Quantos grafos 'pai' são desejados
+
 
 def generate_graph_children(g: nx.Graph):
-    
     # Inicia as listas de pares: [aresta acrescentada, impacto de wiener].
     # O primeiro elemento e [grafo original, 0].
     g_comp = nx.complement(g)
@@ -37,6 +35,7 @@ def generate_graph_children(g: nx.Graph):
 
     return graph_g6_dict, wiener_impact_dict
 
+
 # Enquanto nao tiver gerado K grafos 2-conexos
 k = 0
 graph_g6_dicts = []
@@ -46,7 +45,6 @@ while k < K:
     g = nx.gnm_random_graph(n, m)
     while nx.node_connectivity(g) < 2:
         g = nx.gnm_random_graph(n, m)
-    
     k += 1
     graph_g6_dict, wiener_impact_dict = generate_graph_children(g)
     graph_g6_dicts.append(graph_g6_dict)

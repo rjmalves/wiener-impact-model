@@ -2,6 +2,7 @@ import torch
 from torch_geometric.data import InMemoryDataset
 from utils.torch_data_reader import TorchDataReader
 
+
 class Test10Nodes(InMemoryDataset):
 
     PATH = "C:/Users/roger/git/wiener-impact-model/data/test10nodes/raw/"
@@ -28,7 +29,7 @@ class Test10Nodes(InMemoryDataset):
 
         if self.pre_filter is not None:
             data_list = [data for data in data_list if self.pre_filter(data)]
-        
+
         if self.pre_transform is not None:
             data_list - [self.pre_transform(data) for data in data_list]
 
